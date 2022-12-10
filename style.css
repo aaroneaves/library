@@ -1,0 +1,49 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    height: 100vh;
+}
+
+form {
+    display: grid;
+    width: 500px;
+    padding: 25px;
+    background-color: rgb(192, 192, 192);
+    border: black solid 1px;
+    margin-top: 100px;
+    margin-left: 100px;
+    row-gap: 20px;
+    border-radius: 10px;
+}
+
+input {
+    font-size: 25px;
+    border: black solid 1px;
+}
+
+label:not(.radio-lower-label), 
+#radio-upper-label {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+button {
+    width: 150px;
+    font-size: 20px;
+    color: white;
+    background-color: blue;
+    border-radius: 10px;
+    justify-self: center;
+}
+
+.radio-lower-label {
+    font-size: 20px;
+}
+
+.radio-container {
+    margin-left: 20px;
+}
+
+#yes {
+    margin-right: 20px;
+}
