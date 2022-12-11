@@ -8,7 +8,7 @@ body {
 }
 
 form {
-    display: grid;
+    display: none;
     width: 500px;
     height: 650px;
     padding: 25px;
@@ -39,7 +39,14 @@ button {
     color: white;
     background-color: rgb(145, 145, 254);
     border-radius: 10px;
+}
+
+.button-container {
     justify-self: center;
+}
+
+#submit-button {
+    margin-right: 20px;
 }
 
 .radio-lower-label {
@@ -63,4 +70,23 @@ button {
 #new-book {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+}
+
+.box {
+    height: 100px;
+    width: 800px;
+    background-color: #C0C0C0;
+    border: solid 1px #000000;
+}
+
+.remove-button {
+    background-color: red;
+    color: white;
+    font-size: 15px;
+    width: 100px;
+    margin-left: 20px;
+}
+
+.remove-button::before {
+    content: "Remove";
 }
