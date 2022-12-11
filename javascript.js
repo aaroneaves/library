@@ -22,10 +22,7 @@ function Book(title, author, pages, read ) {
 function addBookToLibrary() {
     window.book = new Book(title.value, author.value, pages.value, yes.checked);
     myLibrary.push(book);
-    while (bookContainer.firstChild) {
-        bookContainer.removeChild(bookContainer.firstChild);
-    }
-    myLibrary.forEach(element => createCard(element));
+    createCard();
     title.value = null;
     author.value = null;
     pages.value = null;
@@ -36,10 +33,11 @@ function addBookToLibrary() {
 function createCard () {
     div = document.createElement("div");
     div.classList.add('box');
-    div.style.height = "200px";
-    div.style.width = "200px";
+    div.style.height = "100px";
+    div.style.width = "800px";
     div.style.backgroundColor = '#c0c0c0';
     div.style.border = "solid 1px #000000";
+    div.textContent = `Title: ${book.title}   Author: ${book.author}    Pages: ${book.pages}   Read: ${book.yes}`;
     bookContainer.appendChild(div);
 }
 
