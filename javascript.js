@@ -29,29 +29,41 @@ function addBookToLibrary() {
 }
 
 function createCard () {
+    //card
     const div = document.createElement("div");
     div.classList.add('box');
-    // div.setAttribute('data-index', (myLibrary.length - 1));
-    div.textContent = `Title: ${book.title}   Author: ${book.author}    Pages: ${book.pages}   Read: ${book.yes}`;
-    removeButton = document.createElement("button");
+    div.textContent = `Title: ${book.title}   Author: ${book.author}    Pages: ${book.pages}`;      //Read: ${book.yes}
+
+    //read status
+    const readStatus = document.createElement("div");
+    if (book.read) {
+        readStatus.classList.add('read-book-true');
+    } else {
+        readStatus.classList.add('read-book-false');
+    };
+    
+    //remove button
+    const removeButton = document.createElement("button");
     removeButton.classList.add('remove-button');
-    // removeButton.setAttribute('data-index', (myLibrary.length - 1));
     removeButton.addEventListener('click', () => {
         div.remove();
         myLibrary.splice(div, 1);
     });
-
-    readButton = document.createElement("button");
+    
+    //read button
+    const readButton = document.createElement("button");
     readButton.classList.add('read-button');
     readButton.addEventListener('click', () => {
-        //add toggle here
-        alert('america');
+        readStatus.classList.toggle('read-book-true');
+        readStatus.classList.toggle('read-book-false');
     });
-
+    
+    //add all of above to DOM
+    div.appendChild(readStatus);
     div.appendChild(removeButton);
     div.appendChild(readButton);
     bookContainer.appendChild(div);
-}
+};
 
 //Popup form
 
@@ -77,12 +89,3 @@ function openTheForm() {
 function closeTheForm() {
     document.getElementById("pop-up-form").style.display = "none";
 }
-
-
-// window.onclick = function (event) {
-//     let modal = document.getElementById('form-wrapper');
-//     if (event.target == modal) {
-//       closeForm();
-//       alert('its working');
-//     }
-// }

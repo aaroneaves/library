@@ -101,3 +101,11 @@ button {
 .read-button::before {
     content: "Read";
 }
+
+.read-book-true::before {
+    content: "Read: Yes";
+}
+
+.read-book-false::before {
+    content: "Read: No";
+}
