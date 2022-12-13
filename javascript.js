@@ -29,28 +29,29 @@ function addBookToLibrary() {
 }
 
 function createCard () {
-    div = document.createElement("div");
+    const div = document.createElement("div");
     div.classList.add('box');
-    div.setAttribute('data-index', (myLibrary.length - 1));
+    // div.setAttribute('data-index', (myLibrary.length - 1));
     div.textContent = `Title: ${book.title}   Author: ${book.author}    Pages: ${book.pages}   Read: ${book.yes}`;
     removeButton = document.createElement("button");
     removeButton.classList.add('remove-button');
-    removeButton.setAttribute('data-index', (myLibrary.length - 1));
+    // removeButton.setAttribute('data-index', (myLibrary.length - 1));
     removeButton.addEventListener('click', () => {
-        // removeBook(div.dataset.index);
         div.remove();
-        //need to also delete that book from the array
-        myLibrary.splice(div.dataset.index, 1);
+        myLibrary.splice(div, 1);
     });
+
+    readButton = document.createElement("button");
+    readButton.classList.add('read-button');
+    readButton.addEventListener('click', () => {
+        //add toggle here
+        alert('america');
+    });
+
     div.appendChild(removeButton);
+    div.appendChild(readButton);
     bookContainer.appendChild(div);
 }
-
-//remove book
-
-// function removeBook (index) {
-//     bookContainer.removeChild(index)
-// }
 
 //Popup form
 

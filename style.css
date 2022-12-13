@@ -84,9 +84,20 @@ button {
     color: white;
     font-size: 15px;
     width: 100px;
-    margin-left: 20px;
+    margin: 0px 20px;
 }
 
 .remove-button::before {
     content: "Remove";
+}
+
+.read-button {
+    background-color: blue;
+    color: white;
+    font-size: 15px;
+    width: 100px;  
+}
+
+.read-button::before {
+    content: "Read";
 }
