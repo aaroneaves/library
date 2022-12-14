@@ -17,7 +17,7 @@ function Book(title, author, pages, read ) {
 }
 
 function addBookToLibrary() {
-    window.book = new Book(title.value, author.value, pages.value, yes.checked);
+    window.book = new Book(title.value, author.value, ~~pages.value, yes.checked);
     myLibrary.push(book);
     createCard();
     title.value = null;
@@ -32,16 +32,14 @@ function createCard () {
     //card
     const card = document.createElement("div");
     card.classList.add('card');
-    //card.textContent = `Title: ${book.title}   Author: ${book.author}    Pages: ${book.pages}`;
 
+    //title, author, and pages
     const title = document.createElement('div');
     title.classList.add('card-item');
     title.textContent = `Title: ${book.title}`;
-
     const author = document.createElement('div');
     author.classList.add('card-item');
     author.textContent = `Author: ${book.author}`;
-
     const pages = document.createElement('div');
     pages.classList.add('card-item');
     pages.textContent = `Pages: ${book.pages}`;
@@ -99,8 +97,14 @@ removeAll.addEventListener('click', () => {
 
 const submitButton = document.querySelector('#submit-button');
 submitButton.addEventListener('click', (event) => {
+    //constrain the pages here
+    
     if (title.value && author.value && pages.value && (yes.checked || no.checked)) {
-        addBookToLibrary();
+        if (pages.value > 0 && pages.value < 10000 && (pages.value % 1 == 0 )) {
+            addBookToLibrary();
+        } else {
+            alert('Pages must be a whole number between 1 - 9,999');
+        }
     } else {
         alert('Please fill out entire form before pressing Submit');
     }  
