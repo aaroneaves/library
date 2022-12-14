@@ -109,3 +109,8 @@ button {
 .read-book-false::before {
     content: "Read: No";
 }
+
+#remove-all {
+    background-color: red;
+    color: white;
+}

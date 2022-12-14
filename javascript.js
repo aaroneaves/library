@@ -60,8 +60,8 @@ function createCard () {
     
     //add items to card, add card to DOM
     div.appendChild(readStatus);
-    div.appendChild(removeButton);
     div.appendChild(readButton);
+    div.appendChild(removeButton);
     bookContainer.appendChild(div);
 };
 
@@ -70,6 +70,14 @@ function createCard () {
 const newBookButton = document.querySelector('#new-book');
 newBookButton.addEventListener('click', () => {
     openTheForm();
+});
+
+const removeAll = document.querySelector('#remove-all');
+removeAll.addEventListener('click', () => {
+    while (bookContainer.firstChild) {
+        bookContainer.removeChild(bookContainer.firstChild);
+      }
+      myLibrary = [];
 });
 
 const submitButton = document.querySelector('#submit-button');
