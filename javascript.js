@@ -20,11 +20,6 @@ function addBookToLibrary() {
     window.book = new Book(title.value, author.value, ~~pages.value, yes.checked);
     myLibrary.push(book);
     createCard();
-    title.value = null;
-    author.value = null;
-    pages.value = null;
-    yes.checked = false;
-    no.checked = false;
     closeTheForm();
 }
 
@@ -122,4 +117,9 @@ function openTheForm() {
   
 function closeTheForm() {
     document.getElementById("pop-up-form").style.display = "none";
+    title.value = null;
+    author.value = null;
+    pages.value = null;
+    yes.checked = false;
+    no.checked = false;
 }
