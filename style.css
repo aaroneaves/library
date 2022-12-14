@@ -72,7 +72,7 @@ button {
     grid-row: 1 / 2;
 }
 
-.box {
+.card {
     height: 100px;
     width: 800px;
     background-color: #C0C0C0;
@@ -92,22 +92,25 @@ button {
 }
 
 .read-button {
-    background-color: blue;
     color: white;
     font-size: 15px;
     width: 100px;  
 }
 
-.read-button::before {
-    content: "Read";
+.read-book-true{
+    background-color: green;
+}
+
+.read-book-false{
+    background-color: red;
 }
 
 .read-book-true::before {
-    content: "Read: Yes";
+    content: "Read";
 }
 
 .read-book-false::before {
-    content: "Read: No";
+    content: "Not Read";
 }
 
 #remove-all {

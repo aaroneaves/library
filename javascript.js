@@ -30,39 +30,36 @@ function addBookToLibrary() {
 
 function createCard () {
     //card
-    const div = document.createElement("div");
-    div.classList.add('box');
-    div.textContent = `Title: ${book.title}   Author: ${book.author}    Pages: ${book.pages}`;
-
-    //read status
-    const readStatus = document.createElement("div");
-    if (book.read) {
-        readStatus.classList.add('read-book-true');
-    } else {
-        readStatus.classList.add('read-book-false');
-    };
-    
-    //remove button
-    const removeButton = document.createElement("button");
-    removeButton.classList.add('remove-button');
-    removeButton.addEventListener('click', () => {
-        div.remove();
-        myLibrary.splice(div, 1);
-    });
+    const card = document.createElement("div");
+    card.classList.add('card');
+    card.textContent = `Title: ${book.title}   Author: ${book.author}    Pages: ${book.pages}`;
     
     //read button
     const readButton = document.createElement("button");
     readButton.classList.add('read-button');
+    if (book.read) {
+        readButton.classList.add('read-book-true');
+    } else {
+        readButton.classList.add('read-book-false');
+    };
+
     readButton.addEventListener('click', () => {
-        readStatus.classList.toggle('read-book-true');
-        readStatus.classList.toggle('read-book-false');
+        readButton.classList.toggle('read-book-true');
+        readButton.classList.toggle('read-book-false');
+    });
+
+    //remove button
+    const removeButton = document.createElement("button");
+    removeButton.classList.add('remove-button');
+    removeButton.addEventListener('click', () => {
+        card.remove();
+        myLibrary.splice(card, 1);
     });
     
     //add items to card, add card to DOM
-    div.appendChild(readStatus);
-    div.appendChild(readButton);
-    div.appendChild(removeButton);
-    bookContainer.appendChild(div);
+    card.appendChild(readButton);
+    card.appendChild(removeButton);
+    bookContainer.appendChild(card);
 };
 
 //Popup form
