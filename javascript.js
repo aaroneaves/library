@@ -32,7 +32,19 @@ function createCard () {
     //card
     const card = document.createElement("div");
     card.classList.add('card');
-    card.textContent = `Title: ${book.title}   Author: ${book.author}    Pages: ${book.pages}`;
+    //card.textContent = `Title: ${book.title}   Author: ${book.author}    Pages: ${book.pages}`;
+
+    const title = document.createElement('div');
+    title.classList.add('card-item');
+    title.textContent = `Title: ${book.title}`;
+
+    const author = document.createElement('div');
+    author.classList.add('card-item');
+    author.textContent = `Author: ${book.author}`;
+
+    const pages = document.createElement('div');
+    pages.classList.add('card-item');
+    pages.textContent = `Pages: ${book.pages}`;
     
     //read button
     const readButton = document.createElement("button");
@@ -45,10 +57,7 @@ function createCard () {
     readButton.addEventListener('click', () => {
         readButton.classList.toggle('read-book-true');
         readButton.classList.toggle('read-book-false');
-
-        //trying to figure out how to change the object as well
         const index = Array.prototype.indexOf.call(bookContainer.children, card);
-        //alert(index);
         if (myLibrary[index].read) {
             myLibrary[index].read = false;
         } else {
@@ -65,6 +74,9 @@ function createCard () {
     });
     
     //add items to card, add card to DOM
+    card.appendChild(title);
+    card.appendChild(author);
+    card.appendChild(pages);
     card.appendChild(readButton);
     card.appendChild(removeButton);
     bookContainer.appendChild(card);
