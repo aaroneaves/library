@@ -32,7 +32,7 @@ function createCard () {
     //card
     const div = document.createElement("div");
     div.classList.add('box');
-    div.textContent = `Title: ${book.title}   Author: ${book.author}    Pages: ${book.pages}`;      //Read: ${book.yes}
+    div.textContent = `Title: ${book.title}   Author: ${book.author}    Pages: ${book.pages}`;
 
     //read status
     const readStatus = document.createElement("div");
@@ -58,7 +58,7 @@ function createCard () {
         readStatus.classList.toggle('read-book-false');
     });
     
-    //add all of above to DOM
+    //add items to card, add card to DOM
     div.appendChild(readStatus);
     div.appendChild(removeButton);
     div.appendChild(readButton);
@@ -73,9 +73,14 @@ newBookButton.addEventListener('click', () => {
 });
 
 const submitButton = document.querySelector('#submit-button');
-submitButton.addEventListener('click', () => {
-    addBookToLibrary();
-});
+submitButton.addEventListener('click', (event) => {
+    if (title.value && author.value && pages.value && (yes.checked || no.checked)) {
+        addBookToLibrary();
+    } else {
+        alert('Please fill out entire form before pressing Submit');
+    }  
+    event.preventDefault();
+}, true);                                         
 
 const cancelButton = document.querySelector('#cancel-button');
 cancelButton.addEventListener('click', () => {
