@@ -42,10 +42,18 @@ function createCard () {
     } else {
         readButton.classList.add('read-book-false');
     };
-
     readButton.addEventListener('click', () => {
         readButton.classList.toggle('read-book-true');
         readButton.classList.toggle('read-book-false');
+
+        //trying to figure out how to change the object as well
+        const index = Array.prototype.indexOf.call(bookContainer.children, card);
+        //alert(index);
+        if (myLibrary[index].read) {
+            myLibrary[index].read = false;
+        } else {
+            myLibrary[index].read = true;
+        }
     });
 
     //remove button
