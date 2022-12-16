@@ -52,13 +52,17 @@ function createCard () {
         readButton.classList.add('read-book-false');
     };
     readButton.addEventListener('click', () => {
-        readButton.classList.toggle('read-book-true');
-        readButton.classList.toggle('read-book-false');
-        const index = Array.prototype.indexOf.call(bookContainer.children, card);
-        if (myLibrary[index].read) {
-            myLibrary[index].read = false;
+        if (popUpForm.style.display == "grid") {
+            return
         } else {
-            myLibrary[index].read = true;
+            readButton.classList.toggle('read-book-true');
+            readButton.classList.toggle('read-book-false');
+            const index = Array.prototype.indexOf.call(bookContainer.children, card);
+            if (myLibrary[index].read) {
+                myLibrary[index].read = false;
+            } else {
+                myLibrary[index].read = true;
+            }     
         }
     });
 
@@ -66,8 +70,12 @@ function createCard () {
     const removeButton = document.createElement("button");
     removeButton.classList.add('remove-button');
     removeButton.addEventListener('click', () => {
-        card.remove();
-        myLibrary.splice(card, 1);
+        if (popUpForm.style.display == "grid") {
+            return
+        } else {
+            card.remove();
+            myLibrary.splice(card, 1);
+        }
     });
     
     //add items to card, add card to DOM
@@ -89,10 +97,14 @@ newBookButton.addEventListener('click', () => {
 
 const removeAll = document.querySelector('#remove-all');
 removeAll.addEventListener('click', () => {
-    while (bookContainer.firstChild) {
-        bookContainer.removeChild(bookContainer.firstChild);
-      }
-      myLibrary = [];
+    if (popUpForm.style.display == "grid") {
+        return
+    } else {
+        while (bookContainer.firstChild) {
+            bookContainer.removeChild(bookContainer.firstChild);
+        }
+        myLibrary = [];    
+    }
 });
 
 const submitButton = document.querySelector('#submit-button');
@@ -116,8 +128,9 @@ cancelButton.addEventListener('click', () => {
     closeTheForm();
 });
 
+const popUpForm = document.querySelector('#pop-up-form');
 function openTheForm() {
-    document.getElementById("pop-up-form").style.display = "grid";
+    popUpForm.style.display = "grid";
 }
   
 function closeTheForm() {
