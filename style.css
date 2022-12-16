@@ -5,6 +5,8 @@ body {
     display: grid;
     grid-template-columns: 1fr 4fr;
     position: relative;
+    background-image: url(img/background-image.jpg);
+
 }
 
 form {
@@ -12,8 +14,9 @@ form {
     width: min-content;
     height: min-content;
     padding: 25px;
-    background-color: #c0c0c0;
-    border: black solid 1px;
+    /* background-color: #DCC7B2; */
+    background-image: url(img/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg);
+    border: black solid 2px;
     row-gap: 20px;
     border-radius: 10px;
     grid-template-rows: repeat(4, min-content);
@@ -41,7 +44,7 @@ label:not(.radio-lower-label),
 }
 
 #cancel-button {
-    background-color: red;
+    background-color: #dcb2b2;
 }
 
 button {
@@ -49,7 +52,7 @@ button {
     height: min-content;
     padding: 5px 0px;
     font-size: 20px;
-    color: white;
+    /* color: white; */
     background-color: rgb(145, 145, 254);
     border-radius: 10px;
 }
@@ -60,6 +63,7 @@ button {
 
 #submit-button {
     margin-right: 20px;
+    background-color: #b2dcc7;
 }
 
 .radio-lower-label {
@@ -75,10 +79,8 @@ button {
 }
 
 .book-container {
-    background-color: rgba(128, 128, 128, 0.315);
     grid-column: 2 / 3;
-    padding: 40px;
-    border-left: solid black 1px;
+    padding: 85px 30px;
     display: grid;
     grid-template-columns: repeat(4, min-content);
     grid-template-rows: repeat(2, min-content);
@@ -89,21 +91,30 @@ button {
 
 #new-book {
     display: block;
+    background-color: #b2dcc7;
+    color: black;
 }
 
 .left-container {
     grid-column: 1 / 2;
     display: grid;
     grid-template-rows: repeat(3, min-content) 1fr;
-    padding: 20px;
-    row-gap: 20px;
+    row-gap: 30px;
     justify-items: center;
+}
+
+.left-side-button {
+    width: 200px;
+    height: 50px;
+    font-size: 25px;
+    border: 2px solid black;
 }
 
 .logo {
     font-weight: bold;
-    font-size: 35px;
-    margin-bottom: 40px;
+    font-size: 40px;
+    margin: 40px 0px 10px;
+    border-bottom: 2px solid black;
 }
 
 .material-symbols-outlined {
@@ -114,23 +125,23 @@ button {
 .card {
     height: min-content;
     width: 300px;
-    background-color: white;
-    border: solid 1px #000000;
+    background-color: #D8C3A8;
+    border: solid 2px #000000;
     border-radius: 20px;
     padding: 10px 20px;
     font-size: 20px;
     font-weight: 500;
-    box-shadow: 7px 7px 5px -2px rgb(162, 162, 162);
 }
 
 .card-item {
     margin: 20px 0px;
     text-align: center;
+    font-weight: 500;
 }
 
 .remove-button {
-    background-color: red;
-    color: white;
+    background-color: #dcb2b2;
+    /* color: white; */
     font-size: 15px;
     width: 100px;
     margin: 0px 20px;
@@ -141,17 +152,17 @@ button {
 }
 
 .read-button {
-    color: white;
+    /* color: white; */
     font-size: 15px;
     width: 100px;  
 }
 
 .read-book-true{
-    background-color: green;
+    background-color: #b2dcc7;
 }
 
 .read-book-false{
-    background-color: grey;
+    background-color: #c4a17d;
 }
 
 .read-book-true::before {
@@ -163,8 +174,8 @@ button {
 }
 
 #remove-all {
-    background-color: red;
-    color: white;
+    background-color: #dcb2b2;
+    color: black;
     display: block;
 }
 
@@ -187,9 +198,10 @@ input[type=number] {
     position: absolute;
     width: min-content;
     height: min-content;
-    left: 0; 
+    /* left: 0; 
     right: 0; 
     top: 0;
     bottom: 0;
-    margin: auto; 
+    margin: auto;  */
+    top: 300px;
 }

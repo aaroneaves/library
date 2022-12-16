@@ -141,3 +141,18 @@ function closeTheForm() {
     yes.checked = false;
     no.checked = false;
 }
+
+// When done testing, delete everything below
+
+function testAdd() {
+    window.book = new Book('The Lord of the Rings', 'JRR Tolkien', 999, true);
+    for (let step = 0; step < 12; step++) {
+        myLibrary.push(book);
+        createCard();
+        closeTheForm();
+    }
+}
+
+testAdd();
+
+// When done testing, delete everything above
