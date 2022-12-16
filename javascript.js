@@ -31,13 +31,17 @@ function createCard () {
     //title, author, and pages
     const title = document.createElement('div');
     title.classList.add('card-item');
-    title.textContent = `Title: ${book.title}`;
+    title.textContent = `"${book.title}"`;
     const author = document.createElement('div');
     author.classList.add('card-item');
-    author.textContent = `Author: ${book.author}`;
+    author.textContent = book.author;
     const pages = document.createElement('div');
     pages.classList.add('card-item');
-    pages.textContent = `Pages: ${book.pages}`;
+    pages.textContent = `${book.pages} pages`;
+
+    //button holder
+    const buttonHolder = document.createElement('div');
+    buttonHolder.classList.add('card-item');
     
     //read button
     const readButton = document.createElement("button");
@@ -70,8 +74,9 @@ function createCard () {
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
-    card.appendChild(readButton);
-    card.appendChild(removeButton);
+    buttonHolder.appendChild(readButton);
+    buttonHolder.appendChild(removeButton);
+    card.appendChild(buttonHolder);
     bookContainer.appendChild(card);
 };
 

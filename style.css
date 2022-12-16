@@ -73,10 +73,20 @@ button {
 }
 
 .card {
-    height: 100px;
-    width: 800px;
-    background-color: #C0C0C0;
+    height: min-content;
+    width: 350px;
+    background-color: rgb(216, 216, 216);
     border: solid 1px #000000;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 500;
+    /* display: grid; */
+}
+
+.card-item {
+    margin: 20px 0px;
+    text-align: center;
 }
 
 .remove-button {
