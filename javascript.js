@@ -2,12 +2,33 @@
 
 let myLibrary = [];
 
+let readBook;
+
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const pages = document.querySelector('#pages');
 const yes = document.querySelector('#yes');
 const no = document.querySelector('#no');
 const bookContainer = document.querySelector('.book-container');
+
+const total = document.querySelector('.meta-total');
+const read = document.querySelector('.meta-read');
+const notRead = document.querySelector('.meta-not-read');
+function updateMetaData() {
+    total.textContent = 'Total Books: ' +  myLibrary.length;
+    readBook = 0;
+    for (let i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].read) {
+            readBook += 1;
+        }
+    }
+    read.textContent = 'Read: ' + readBook;
+    notRead.textContent = 'Not Read: ' + (myLibrary.length - readBook);
+}
+
+
+
+
 
 function Book(title, author, pages, read ) {
     this.title = title;
@@ -63,6 +84,7 @@ function createCard () {
             } else {
                 myLibrary[index].read = true;
             }     
+            updateMetaData();
         }
     });
 
@@ -75,6 +97,7 @@ function createCard () {
         } else {
             card.remove();
             myLibrary.splice(card, 1);
+            updateMetaData();
         }
     });
     
@@ -104,7 +127,8 @@ removeAll.addEventListener('click', () => {
         while (bookContainer.firstChild) {
             bookContainer.removeChild(bookContainer.firstChild);
         }
-        myLibrary = [];    
+        myLibrary = [];   
+        updateMetaData();
     }
 });
 
@@ -115,6 +139,7 @@ submitButton.addEventListener('click', (event) => {
     if (title.value && author.value && pages.value && (yes.checked || no.checked)) {
         if (pages.value > 0 && pages.value < 10000 && (pages.value % 1 == 0 )) {
             addBookToLibrary();
+            updateMetaData();
         } else {
             alert('Pages must be a whole number between 1 - 9,999');
         }
@@ -142,18 +167,3 @@ function closeTheForm() {
     yes.checked = false;
     no.checked = false;
 }
-
-// When done testing, delete everything below
-
-function testAdd() {
-    window.book = new Book('The Lord of the Rings: The Two Towers', 'JRR Tolkien', 999, true);
-    for (let step = 0; step < 12; step++) {
-        myLibrary.push(book);
-        createCard();
-        closeTheForm();
-    }
-}
-
-testAdd();
-
-// When done testing, delete everything above

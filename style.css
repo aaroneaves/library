@@ -99,9 +99,18 @@ button {
 .left-container {
     grid-column: 1 / 2;
     display: grid;
-    grid-template-rows: repeat(3, min-content) 1fr;
+    grid-template-rows: repeat(4, min-content) 1fr;
     row-gap: 30px;
     justify-items: center;
+}
+
+.meta-data {
+    font-size: 25px;
+    /* justify-self: left; */
+    background-color: #D8C3A8;
+    border-radius: 5px;
+    border: 2px black solid;
+    padding: 10px;
 }
 
 .left-side-button {
