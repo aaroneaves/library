@@ -6,6 +6,7 @@ body {
     grid-template-columns: 1fr 4fr;
     position: relative;
     background-image: url(img/background-image.jpg);
+    /* background-color: white; */
 
 }
 
@@ -137,6 +138,9 @@ button {
     margin: 20px 0px;
     text-align: center;
     font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .remove-button {
@@ -162,7 +166,7 @@ button {
 }
 
 .read-book-false{
-    background-color: #c4a17d;
+    background-color: #dcb2b2;
 }
 
 .read-book-true::before {
@@ -195,13 +199,13 @@ input[type=number] {
 }
 
 #form-wrapper {
-    position: absolute;
+    position: fixed;
     width: min-content;
     height: min-content;
-    /* left: 0; 
+    left: 0; 
     right: 0; 
     top: 0;
     bottom: 0;
-    margin: auto;  */
-    top: 300px;
+    margin: auto; 
+    /* top: 300px; */
 }

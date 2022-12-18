@@ -93,6 +93,7 @@ function createCard () {
 const newBookButton = document.querySelector('#new-book');
 newBookButton.addEventListener('click', () => {
     openTheForm();
+    title.focus();
 });
 
 const removeAll = document.querySelector('#remove-all');
@@ -145,7 +146,7 @@ function closeTheForm() {
 // When done testing, delete everything below
 
 function testAdd() {
-    window.book = new Book('The Lord of the Rings', 'JRR Tolkien', 999, true);
+    window.book = new Book('The Lord of the Rings: The Two Towers', 'JRR Tolkien', 999, true);
     for (let step = 0; step < 12; step++) {
         myLibrary.push(book);
         createCard();
