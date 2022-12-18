@@ -1,3 +1,5 @@
+/*                            Global                                   */
+
 body {
     padding: 0px;
     margin: 0px;
@@ -6,95 +8,9 @@ body {
     grid-template-columns: 1fr 4fr;
     position: relative;
     background-image: url(img/background-image.jpg);
-    /* background-color: white; */
-
 }
 
-form {
-    display: none;
-    width: min-content;
-    height: min-content;
-    padding: 25px;
-    /* background-color: #DCC7B2; */
-    background-image: url(img/ivan-gromov-Y3vPEuNlf7w-unsplash.jpg);
-    border: black solid 2px;
-    row-gap: 20px;
-    border-radius: 10px;
-    grid-template-rows: repeat(4, min-content);
-}
-
-label {
-    display: block;
-}
-
-.radio-lower-label {
-    display:inline;
-}
-
-input {
-    font-size: 20px;
-    border: black solid 1px;
-    padding: 7px;
-    border-radius: 5px;
-}
-
-label:not(.radio-lower-label), 
-#radio-upper-label {
-    font-weight: bold;
-    font-size: 25px;
-}
-
-#cancel-button {
-    background-color: #dcb2b2;
-}
-
-button {
-    width: 120px;
-    height: min-content;
-    padding: 5px 0px;
-    font-size: 20px;
-    /* color: white; */
-    background-color: rgb(145, 145, 254);
-    border-radius: 10px;
-}
-
-.button-container {
-    justify-self: center;
-}
-
-#submit-button {
-    margin-right: 20px;
-    background-color: #b2dcc7;
-}
-
-.radio-lower-label {
-    font-size: 20px;
-}
-
-#radio-upper-label {
-    margin-bottom: 5px;
-}
-
-#yes {
-    margin-right: 20px;
-}
-
-.book-container {
-    grid-column: 2 / 3;
-    padding: 85px 30px;
-    display: grid;
-    grid-template-columns: repeat(4, min-content);
-    grid-template-rows: repeat(2, min-content);
-    gap: 30px;
-    grid-auto-rows: min-content;
-
-}
-
-#new-book {
-    display: block;
-    background-color: #b2dcc7;
-    color: black;
-}
+/*                            Side-bar                                   */
 
 .left-container {
     grid-column: 1 / 2;
@@ -102,22 +18,6 @@ button {
     grid-template-rows: repeat(4, min-content) 1fr;
     row-gap: 30px;
     justify-items: center;
-}
-
-.meta-data {
-    font-size: 25px;
-    /* justify-self: left; */
-    background-color: #D8C3A8;
-    border-radius: 5px;
-    border: 2px black solid;
-    padding: 10px;
-}
-
-.left-side-button {
-    width: 200px;
-    height: 50px;
-    font-size: 25px;
-    border: 2px solid black;
 }
 
 .logo {
@@ -130,7 +30,66 @@ button {
 .material-symbols-outlined {
     transform: scale(1.5);
     margin-right: 5px;
-  }
+}
+
+.left-side-button {
+    width: 200px;
+    height: 50px;
+    font-size: 25px;
+    border: 2px solid black;
+}
+
+#new-book {
+    display: block;
+    background-color: #b2dcc7;
+    color: black;
+}
+
+#remove-all {
+    background-color: #dcb2b2;
+    color: black;
+    display: block;
+}
+
+.meta-data {
+    font-size: 25px;
+    background-color: #D8C3A8;
+    border-radius: 10px;
+    border: 2px black solid;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    width: fit-content;
+    row-gap: 10px;
+}
+
+.meta-total,
+.meta-read,
+.meta-not-read {
+    justify-self: center;
+}
+
+.align-right {
+    justify-self: right;
+}
+
+.total,
+.align-right {
+    font-weight: bold;
+}
+
+/*                            Book Container                                   */
+
+.book-container {
+    grid-column: 2 / 3;
+    padding: 85px 30px;
+    display: grid;
+    grid-template-columns: repeat(4, min-content);
+    grid-template-rows: repeat(2, min-content);
+    gap: 30px;
+    grid-auto-rows: min-content;
+}
 
 .card {
     height: min-content;
@@ -152,20 +111,7 @@ button {
     text-overflow: ellipsis;
 }
 
-.remove-button {
-    background-color: #dcb2b2;
-    /* color: white; */
-    font-size: 15px;
-    width: 100px;
-    margin: 0px 20px;
-}
-
-.remove-button::before {
-    content: "Remove";
-}
-
 .read-button {
-    /* color: white; */
     font-size: 15px;
     width: 100px;  
 }
@@ -186,10 +132,47 @@ button {
     content: "Not Read";
 }
 
-#remove-all {
+.remove-button {
     background-color: #dcb2b2;
-    color: black;
-    display: block;
+    font-size: 15px;
+    width: 100px;
+    margin: 0px 20px;
+}
+
+.remove-button::before {
+    content: "Remove";
+}
+
+/*                            Form                                   */
+
+#form-wrapper {
+    position: fixed;
+    width: min-content;
+    height: min-content;
+    left: 0; 
+    right: 0; 
+    top: 0;
+    bottom: 0;
+    margin: auto; 
+}
+
+form {
+    display: none;
+    width: min-content;
+    height: min-content;
+    padding: 25px;
+    background-image: url(img/paper.jpg);
+    border: black solid 2px;
+    row-gap: 20px;
+    border-radius: 10px;
+    grid-template-rows: repeat(4, min-content);
+}
+
+input {
+    font-size: 20px;
+    border: black solid 1px;
+    padding: 7px;
+    border-radius: 5px;
 }
 
 input::-webkit-outer-spin-button,
@@ -207,14 +190,46 @@ input[type=number] {
     -moz-appearance:textfield;
 }
 
-#form-wrapper {
-    position: fixed;
-    width: min-content;
+.button-container {
+    justify-self: center;
+}
+
+button {
+    width: 120px;
     height: min-content;
-    left: 0; 
-    right: 0; 
-    top: 0;
-    bottom: 0;
-    margin: auto; 
-    /* top: 300px; */
+    padding: 5px 0px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+#submit-button {
+    margin-right: 20px;
+    background-color: #b2dcc7;
+}
+
+#cancel-button {
+    background-color: #dcb2b2;
+}
+
+label {
+    display: block;
+}
+
+label:not(.radio-lower-label), 
+#radio-upper-label {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.radio-lower-label {
+    font-size: 20px;
+    display:inline;
+}
+
+#radio-upper-label {
+    margin-bottom: 5px;
+}
+
+#yes {
+    margin-right: 20px;
 }
