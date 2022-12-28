@@ -9,11 +9,13 @@ const yes = document.querySelector('#yes');
 const no = document.querySelector('#no');
 const bookContainer = document.querySelector('.book-container');
 
-function Book(title, author, pages, read ) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+class Book {
+    constructor(title, author, pages, read ) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 }
 
 function addBookToLibrary() {
